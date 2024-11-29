@@ -1,101 +1,131 @@
-import Image from "next/image";
+// Main Page Component (page"use client";
+import Link from "next/link";
 
-export default function Home() {
+export default function MainPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen p-8 bg-blue-200 text-blue">
+      {/* Welcome Section */}
+      <div className="text-center mb-16">
+        <h2 className="text-5xl font-extrabold mb-6">Welcome to the Imaginary Job Posting Platform!</h2>
+        <p className="text-xl mb-8">
+          Are you ready to explore jobs that defy reality, inspired by anime and adventure? Whether you're an Employer looking for creative talent or an Adventurer ready for an impossible mission, this is the place for you!
+        </p>
+        <div className="flex justify-center gap-6">
+          <button className="bg-purple-600 text-white px-8 py-4 rounded-full font-bold hover:bg-purple-700 transition transform hover:scale-105">
+            Find Jobs
+          </button>
+          <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition transform hover:scale-105">
+            Post a Job
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* Featured Jobs Section */}
+      <section className="mt-12">
+        <h3 className="text-4xl font-extrabold mb-10 text-center">Featured Job Postings</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          {/* Example Job Card 1 */}
+          <div className="bg-gradient-to-b from-yellow-400 to-yellow-300 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 border-2 border-yellow-500">
+            <h4 className="text-3xl font-bold mb-4">Fly to the Moon with a Rocket Guitar 🚀🎸</h4>
+            <p className="mb-4">
+              Join our team of space adventurers as we take off to the moon with our trusty rocket-powered guitars.
+              Responsibilities include playing a sick guitar solo while soaring through space and planting a flag
+              to declare your awesomeness on the moon.
+            </p>
+            <p className="font-semibold">Reward: Moon Rock Souvenir</p>
+            <p className="font-semibold mt-4">Requirements:</p>
+            <ul className="list-disc list-inside ml-6 mb-4">
+              <li>Must be able to play the guitar (preferably electric).</li>
+              <li>Comfortable with heights... very high heights.</li>
+              <li>Passion for rock music and space exploration.</li>
+            </ul>
+            <button className="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition transform hover:scale-105">
+              Apply Now
+            </button>
+          </div>
+
+          {/* Example Job Card 2 */}
+          <div className="bg-gradient-to-b from-green-400 to-green-300 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 border-2 border-green-500">
+            <h4 className="text-3xl font-bold mb-4">Defend a Magical Forest as a Guardian 🌲🛡️</h4>
+            <p className="mb-4">
+              Become a guardian of the enchanted forest and protect mystical creatures from evil invaders. Use spells,
+              magical swords, and your wits to defend this sacred place.
+            </p>
+            <p className="font-semibold">Reward: Lifetime supply of enchanted forest fruits</p>
+            <p className="font-semibold mt-4">Requirements:</p>
+            <ul className="list-disc list-inside ml-6 mb-4">
+              <li>Must be skilled in swordsmanship or spell-casting.</li>
+              <li>Must love nature and its mystical elements.</li>
+              <li>Bravery in the face of magical dangers.</li>
+            </ul>
+            <button className="bg-green-600 text-white px-6 py-3 rounded-full font-bold hover:bg-green-700 transition transform hover:scale-105">
+              Apply Now
+            </button>
+          </div>
+
+          {/* Example Job Card 3 */}
+          <div className="bg-gradient-to-b from-pink-400 to-pink-300 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 border-2 border-pink-500">
+            <h4 className="text-3xl font-bold mb-4">Battle Sea Monsters as an Ocean Adventurer 🌊🦑</h4>
+            <p className="mb-4">
+              Join our crew and sail the high seas in search of adventure and treasure. Face off against mighty sea
+              monsters and defend the ship using your skills and bravery.
+            </p>
+            <p className="font-semibold">Reward: A chest of pirate gold and eternal glory</p>
+            <p className="font-semibold mt-4">Requirements:</p>
+            <ul className="list-disc list-inside ml-6 mb-4">
+              <li>Must have experience with sailing or monster battling.</li>
+              <li>Love for the ocean and its mysteries.</li>
+              <li>Fearlessness in the face of danger.</li>
+            </ul>
+            <button className="bg-pink-600 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-700 transition transform hover:scale-105">
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Employer and Adventurer Info Section */}
+      <section className="mt-20 text-center">
+        <h3 className="text-4xl font-extrabold mb-10">How Does It Work?</h3>
+        <div className="flex flex-col md:flex-row gap-12 justify-center items-center">
+          {/* Employer Info */}
+          <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg max-w-md hover:shadow-2xl transition transform hover:scale-105">
+            <h4 className="text-3xl font-bold mb-6">For Employers 🏢</h4>
+            <p className="mb-6">
+              Have a job that seems impossible? Looking for brave and adventurous talent? Post a job here and let the dreamers of the world join your quest.
+            </p>
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition transform hover:scale-105">
+              Post a Job
+            </button>
+          </div>
+          {/* Adventurer Info */}
+          <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg max-w-md hover:shadow-2xl transition transform hover:scale-105">
+            <h4 className="text-3xl font-bold mb-6">For Adventurers ⚔️</h4>
+            <p className="mb-6">
+              Looking for your next impossible mission? Browse jobs inspired by your favorite anime adventures and take on challenges beyond your wildest dreams.
+            </p>
+            <button className="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition transform hover:scale-105">
+              Find Jobs
+            </button>
+            <div className="mt-8">
+              <p className="font-semibold mb-4">New here? Join us now!</p>
+              <div className="flex gap-4 justify-center">
+              <Link href="/Register">
+  <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+    Register
+  </button>
+</Link>
+
+<Link href="/Login">
+  <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+    Login
+  </button>
+</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
