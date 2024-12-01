@@ -1,9 +1,17 @@
-// Main Page Component (page"use client";
+'use client';
+
 import Link from "next/link";
+import { useUser } from '@/context/UserContext';
+import "../global.css"
 
 export default function MainPage() {
+  const { user, logout } = useUser();
+
   return (
     <div className="min-h-screen p-8 bg-blue-200 text-blue">
+    
+
+
       {/* Welcome Section */}
       <div className="text-center mb-16">
         <h2 className="text-5xl font-extrabold mb-6">Welcome to the Imaginary Job Posting Platform!</h2>
@@ -39,9 +47,11 @@ export default function MainPage() {
               <li>Comfortable with heights... very high heights.</li>
               <li>Passion for rock music and space exploration.</li>
             </ul>
-            <button className="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition transform hover:scale-105">
-              Apply Now
-            </button>
+            <Link href='/apply'>
+              <button className="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition transform hover:scale-105">
+                Apply Now
+              </button>
+            </Link>
           </div>
 
           {/* Example Job Card 2 */}
@@ -58,9 +68,11 @@ export default function MainPage() {
               <li>Must love nature and its mystical elements.</li>
               <li>Bravery in the face of magical dangers.</li>
             </ul>
-            <button className="bg-green-600 text-white px-6 py-3 rounded-full font-bold hover:bg-green-700 transition transform hover:scale-105">
-              Apply Now
-            </button>
+            <Link href='/apply'>
+              <button className="bg-green-600 text-white px-6 py-3 rounded-full font-bold hover:bg-green-700 transition transform hover:scale-105">
+                Apply Now
+              </button>
+            </Link>
           </div>
 
           {/* Example Job Card 3 */}
@@ -77,9 +89,11 @@ export default function MainPage() {
               <li>Love for the ocean and its mysteries.</li>
               <li>Fearlessness in the face of danger.</li>
             </ul>
-            <button className="bg-pink-600 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-700 transition transform hover:scale-105">
-              Apply Now
-            </button>
+            <Link href="/apply">
+              <button className="bg-pink-600 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-700 transition transform hover:scale-105">
+                Apply Now
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -88,7 +102,6 @@ export default function MainPage() {
       <section className="mt-20 text-center">
         <h3 className="text-4xl font-extrabold mb-10">How Does It Work?</h3>
         <div className="flex flex-col md:flex-row gap-12 justify-center items-center">
-          {/* Employer Info */}
           <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg max-w-md hover:shadow-2xl transition transform hover:scale-105">
             <h4 className="text-3xl font-bold mb-6">For Employers 🏢</h4>
             <p className="mb-6">
@@ -98,7 +111,6 @@ export default function MainPage() {
               Post a Job
             </button>
           </div>
-          {/* Adventurer Info */}
           <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg max-w-md hover:shadow-2xl transition transform hover:scale-105">
             <h4 className="text-3xl font-bold mb-6">For Adventurers ⚔️</h4>
             <p className="mb-6">
@@ -110,17 +122,17 @@ export default function MainPage() {
             <div className="mt-8">
               <p className="font-semibold mb-4">New here? Join us now!</p>
               <div className="flex gap-4 justify-center">
-              <Link href="/Register">
-  <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
-    Register
-  </button>
-</Link>
+                <Link href="/Register">
+                  <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+                    Register
+                  </button>
+                </Link>
 
-<Link href="/Login">
-  <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
-    Login
-  </button>
-</Link>
+                <Link href="/Login">
+                  <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+                    Login
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

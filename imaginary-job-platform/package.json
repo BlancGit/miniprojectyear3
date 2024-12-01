@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "seed": "ts-node --require tsconfig-paths/register prisma/seed.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -29,6 +30,8 @@
     "eslint-config-next": "15.0.3",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5"
   }
 }

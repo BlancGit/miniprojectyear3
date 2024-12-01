@@ -1,23 +1,27 @@
-import Header from '@/components/head';
-import Footer from '@/components/foot';
-import './globals.css';
+// layout.tsx
+
+import Header from '../components/head';  // Adjust the path based on your project structure
+import Footer from '../components/foot';  // Adjust the path based on your project structure
+
+export const metadata = {
+  title: 'Imaginary Job Posting Platform',
+  description: 'Find or post imaginary jobs inspired by anime!',
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <head>
-        <title>Imaginary Job Posting Platform</title>
-        <meta name="description" content="Find creative and impossible jobs inspired by anime and manga." />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
       </head>
-      <body className="">
+      <body>
         <Header />
-        <main className="">
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

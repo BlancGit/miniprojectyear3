@@ -1,6 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES6", // Set the target to ES6 for broad compatibility
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "target": "ES2017",
     "lib": [
       "dom",
       "dom.iterable",
@@ -8,21 +14,15 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
-    "esModuleInterop": true, // Allow CommonJS imports to work seamlessly with ES modules
-    "module": "commonjs", // Use CommonJS modules for Node compatibility
-    "moduleResolution": "node", // Use node module resolution strategy
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
-    "baseUrl": ".", // Optional, to resolve paths more easily
-    "paths": {
-      "@/*": [
-        "./*"
-      ] // Set up a wildcard alias for easy imports
-    },
-    "noEmit": true,
     "plugins": [
       {
         "name": "next"

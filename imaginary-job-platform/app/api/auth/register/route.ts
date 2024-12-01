@@ -1,58 +1,3 @@
-// import type { NextApiRequest, NextApiResponse } from 'next';
-// import { PrismaClient } from '@prisma/client';
-// import bcrypt from 'bcryptjs';
-// import { z } from 'zod';
-
-// const prisma = new PrismaClient();
-
-// const registerSchema = z.object({
-//   username: z.string().min(3, "Username must be at least 3 characters long"),
-//   email: z.string().email("Invalid email address"),
-//   password: z.string().min(6, "Password must be at least 6 characters long"),
-//   role: z.enum(['Employer', 'Adventurer']),
-// });
-
-// export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-//   if (req.method === 'POST') {
-//     try {
-//       const data = registerSchema.parse(req.body);
-//       const { username, email, password, role } = data;
-
-//       const existingUser = await prisma.user.findUnique({ where: { email } });
-//       if (existingUser) {
-//         return res.status(400).json({ error: 'User already exists' });
-//       }
-
-//       const roleRecord = await prisma.role.findUnique({ where: { name: role } });
-//       if (!roleRecord) {
-//         return res.status(400).json({ error: 'Invalid role' });
-//       }
-
-//       const hashedPassword = await bcrypt.hash(password, 10);
-
-//       const user = await prisma.user.create({
-//         data: {
-//           username,
-//           email,
-//           password: hashedPassword,
-//           role: {
-//             connect: { id: roleRecord.id },
-//           },
-//         },
-//       });
-
-//       res.status(201).json({ user });
-//     } catch (error) {
-//       if (error instanceof z.ZodError) {
-//         return res.status(400).json({ error: error.errors });
-//       }
-//       res.status(500).json({ error: 'Something went wrong' });
-//     }
-//   } else {
-//     res.setHeader('Allow', ['POST']);
-//     res.status(405).end(`Method ${req.method} Not Allowed`);
-//   }
-// }
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
@@ -108,7 +53,12 @@ export async function POST(request: Request) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: 'Invalid input data' }, { status: 400 });
-    } else if (error.code === 'P2002') {
+    } else if (
+      typeof error === 'object' &&
+      error !== null &&
+      'code' in error &&
+      (error as any).code === 'P2002'
+    ) {
       return NextResponse.json({ error: 'User with this email already exists' }, { status: 400 });
     }
     return NextResponse.json({ error: 'Something went wrong, please try again later.' }, { status: 500 });

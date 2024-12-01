@@ -1,14 +1,44 @@
-"use client";
+'use client';
+import Link from 'next/link';
+import { useUser } from '@/context/UserContext';
 
 export default function Header() {
+  const { user, logout } = useUser();
+
   return (
-    <header className="bg-gradient-to-r from-purple-600 to-blue-500 text-white p-6 shadow-md">
-      <h1 className="text-4xl font-extrabold">Imaginary Job Posting Platform</h1>
-      <nav className="mt-4">
-        <ul className="flex gap-6">
-          <li><a href="/" className="hover:underline">Home</a></li>
-          <li><a href="/jobs" className="hover:underline">All Jobs</a></li>
-          <li><a href="/post-job" className="hover:underline">Post a Job</a></li>
+    <header className="bg-blue-600 text-white p-4 flex justify-between items-center">
+      <h1 className="text-3xl font-bold">
+        <Link href="/">Imaginary Job Posting Platform</Link>
+      </h1>
+      <nav>
+        <ul className="flex gap-6 items-center">
+          <li>
+            <Link href="/allJobs">All Jobs</Link>
+          </li>
+          <li>
+            <Link href="/postJob">Post a Job</Link>
+          </li>
+          {user ? (
+            <>
+              <li className="font-bold">Hello, {user.username}!</li>
+              <li>
+                <button
+                  onClick={logout}
+                  className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+                >
+                  Logout
+                </button>
+              </li>
+            </>
+          ) : (
+            <li>
+              <Link href="/Login">
+                <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+                  Login
+                </button>
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </header>
