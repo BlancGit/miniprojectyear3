@@ -6,7 +6,7 @@ export default function Header() {
   const { user, logout } = useUser();
 
   return (
-    <header className="bg-blue-600 text-white p-4 flex justify-between items-center">
+    <header className="bg-orange-600 text-white p-4 flex justify-between items-center">
       <h1 className="text-3xl font-bold">
         <Link href="/">Imaginary Job Posting Platform</Link>
       </h1>
