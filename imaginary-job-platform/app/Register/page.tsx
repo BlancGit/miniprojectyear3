@@ -40,9 +40,9 @@ export default function Register() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-gray-100">
-      <div className="bg-white p-10 rounded-2xl shadow-lg w-full max-w-lg">
-        <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Create Your Account</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black">
+      <div className="bg-gradient-to-b from-brown-500 to-brown-700 p-10 rounded-2xl shadow-xl w-full max-w-lg border-2 border-orange-600">
+        <h1 className="text-4xl font-bold text-center mb-8 text-orange-400">Create Your Account</h1>
         
         {errorMessage && (
           <p className="text-red-500 text-center mb-6">{errorMessage}</p>
@@ -53,7 +53,7 @@ export default function Register() {
           placeholder="Username" 
           value={username} 
           onChange={(e) => setUsername(e.target.value)} 
-          className="block w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="block w-full p-4 mb-4 bg-black text-gray-200 border border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
         />
         
         <input 
@@ -61,7 +61,7 @@ export default function Register() {
           placeholder="Email" 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
-          className="block w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="block w-full p-4 mb-4 bg-black text-gray-200 border border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
         />
         
         <input 
@@ -69,13 +69,13 @@ export default function Register() {
           placeholder="Password" 
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
-          className="block w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="block w-full p-4 mb-4 bg-black text-gray-200 border border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
         />
 
         <select 
           value={role} 
           onChange={(e) => setRole(e.target.value)} 
-          className="block w-full p-4 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="block w-full p-4 mb-6 bg-black text-gray-200 border border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
         >
           <option value="Employer">Employer</option>
           <option value="Adventurer">Adventurer</option>
@@ -83,7 +83,11 @@ export default function Register() {
 
         <button 
           onClick={handleRegister} 
-          className={`w-full p-4 rounded-lg font-semibold text-white ${isLoading ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 transition ease-in-out duration-200'}`}
+          className={`w-full p-4 rounded-lg font-semibold text-black ${
+            isLoading
+              ? 'bg-orange-400 cursor-not-allowed'
+              : 'bg-orange-600 hover:bg-orange-700 transition ease-in-out duration-200'
+          }`}
           disabled={isLoading}
         >
           {isLoading ? 'Registering...' : 'Register'}
