@@ -59,7 +59,7 @@ export default function AllJobsPage() {
             </ul>
             <Link href={`/jobs/${job.id}`}>
               <button className="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition transform hover:scale-105">
-                Apply Now
+                View detail
               </button>
             </Link>
           </div>

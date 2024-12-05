@@ -19,9 +19,11 @@ export default function MainPage() {
           Are you ready to explore jobs that defy reality, inspired by anime and adventure? Whether you're an Employer looking for creative talent or an Adventurer ready for an impossible mission, this is the place for you!
         </p>
         <div className="flex justify-center gap-6">
-          <button className="bg-purple-600 text-white px-8 py-4 rounded-full font-bold hover:bg-purple-700 transition transform hover:scale-105">
-            Find Jobs
-          </button>
+        <Link href='/allJobs'>
+              <button className="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition transform hover:scale-105">
+               View ALL Jobs
+              </button>
+            </Link>
           <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition transform hover:scale-105">
             Post a Job
           </button>
