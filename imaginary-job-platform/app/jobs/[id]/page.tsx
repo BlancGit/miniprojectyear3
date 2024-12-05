@@ -28,9 +28,9 @@ export default async function DetailJobPage({ params }: JobDetailProps) {
   }
 
   return (
-    <div className="">
-      <h1 className="">{job.title}</h1>
-      <div className="">
+    <div className="min-h-screen p-8 bg-blue-200">
+      <h1 className="text-5xl font-extrabold mb-6 text-center">{job.title}</h1>
+      <div className="bg-gradient-to-b from-yellow-400 to-yellow-300 p-8 rounded-xl shadow-lg border-2 border-yellow-500">
         <p className="mb-4">{job.description}</p>
         <p className="font-semibold">Reward: {job.reward}</p>
         <p className="font-semibold mt-4">Requirements:</p>
