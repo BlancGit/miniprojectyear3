@@ -40,13 +40,13 @@ export default function AllJobsPage() {
   }
 
   return (
-    <div className="min-h-screen p-8 bg-blue-200 text-blue">
-      <h2 className="text-4xl font-extrabold mb-6 text-center">All Available Jobs</h2>
+    <div className="min-h-screen p-8 bg-black text-blue">
+      <h2 className="text-4xl font-extrabold mb-6 text-center text-orange-500">All Available Jobs</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {jobs.map((job) => (
           <div
             key={job.id}
-            className="bg-gradient-to-b from-yellow-400 to-yellow-300 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 border-2 border-yellow-500"
+            className="bg-gradient-to-b from-yellow-400 to-orange-600 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 border-2 border-yellow-500"
           >
             <h4 className="text-3xl font-bold mb-4">{job.title}</h4>
             <p className="mb-4">{job.description}</p>
@@ -58,7 +58,7 @@ export default function AllJobsPage() {
               ))}
             </ul>
             <Link href={`/jobs/${job.id}`}>
-              <button className="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition transform hover:scale-105">
+              <button className="bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-yellow-700 transition transform hover:scale-105">
                 View detail
               </button>
             </Link>
